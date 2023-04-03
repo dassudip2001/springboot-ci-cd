@@ -26,3 +26,10 @@ jobs:
     steps:
       - name: Docker login
         run: echo "docker login"
+
+
+  deployment:
+     runs-on: ubuntu-latest
+     steps:
+       - name: Aws Login
+         run: echo "aws login"
