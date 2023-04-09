@@ -28,10 +28,17 @@ jobs:
       - name: Docker login
         run: echo "docker login"
 
+  create-DockerImage:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker Image
+        run: docker build -t myapp .
+
 
   deployment:
-     needs: test
-     runs-on: ubuntu-latest
-     steps:
-       - name: Aws Login
-         run: echo "aws login"
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Aws Login
+        run: echo "aws login"
