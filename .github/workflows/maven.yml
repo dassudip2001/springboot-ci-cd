@@ -33,11 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Image
-        run: docker build -t myapp .
+        run: sudo docker build -t myapp .
 
 
   deployment:
-    needs: test
+    needs: create-DockerImage
     runs-on: ubuntu-latest
     steps:
       - name: Aws Login
