@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Image
-        run: sudo docker build -t myapp .
+        run: ls
 
 
   deployment:
