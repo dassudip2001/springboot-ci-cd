@@ -22,6 +22,7 @@ jobs:
 
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Docker login
@@ -29,6 +30,7 @@ jobs:
 
 
   deployment:
+     needs: test
      runs-on: ubuntu-latest
      steps:
        - name: Aws Login
