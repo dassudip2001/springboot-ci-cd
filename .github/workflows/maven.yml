@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker Image
-        run: ls
+        run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
 
   deployment:
