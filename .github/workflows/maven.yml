@@ -21,15 +21,17 @@ jobs:
       run: mvn clean install
 
 
-  test:
-    needs: build
+  build-image:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Docker login
-        run: echo "docker login"
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
 
   create-DockerImage:
-    needs: test
+    needs: build-image
     runs-on: ubuntu-latest
     steps:
       - name: Docker Image
